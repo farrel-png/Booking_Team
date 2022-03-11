@@ -5,6 +5,8 @@ class WorkOrder(models.Model):
     _name = 'work.order'
     _description = 'Work Order'
 
+    wo_number = fields.Char(string='WO Number', readonly=True, copy=False)
+    
     booking_order_reference = fields.Many2one('sale.order', string='Booking Order Reference')
     team = fields.Many2one(comodel_name='service_team', string='Team', required=True)
     team_members = fields.Many2many(comodel_name='res.users', string='Team Member')
